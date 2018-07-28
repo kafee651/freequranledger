@@ -30,24 +30,20 @@
 
 	<!--header -->
 	<div id="header">			
-				
-		<h1 id="logo-text"><a href="./index.php" title="">My Expenses</a></h1>		
-		<p id="slogan">Use as Calculator... </p>	
-		
-		<div  id="nav">
-			<ul>
-                <li><a href="./insert.php">Insert</a></li>
-                <li class="first" id="current"><a href="./search_date.php">Search</a></li>
-                <li><a href="./profile.php">Dashboard</a></li>
-                <li><a href="./create_user.php">Create New User</a></li>
-                <li><a href="./logout.php">Logout</a></li>  		
-			</ul>		
-		</div>	
-		
-		<div id="header-image"></div>
-						
-	<!--header ends-->					
-	</div>
+				<h1 id="logo-text"><a href="./index.php" title="">Free Quran Ledger</a></h1>		
+				<p id="slogan">Use as tracker... </p>	
+				<div  id="nav">
+					<ul>
+						<li><a href="./profile.php">Home</a></li>
+						<li><a href="./insert.php">Create</a></li>
+						<li><a href="./update.php">Update</a></li>
+						<li class="first" id="current"><a href="./search_date.php">Search</a></li>
+						<li><a href="./create_user.php">Create New User</a></li>
+						<li><a href="./logout.php">Logout</a></li>		
+					</ul>		
+				</div>	
+				<div id="header-image"></div>
+			</div>
 	
 	<!-- featured starts -->
 	<!-- content -->
@@ -260,8 +256,7 @@
 	
 	<!-- footer-bottom starts -->		
 	<div id="footer-bottom">
-		<div class="bottom-left"> &copy; 2012 All rights are reserve&nbsp; &nbsp; &nbsp;
-      Design by <a href="http://www.styleshout.com/">Kafee</a>		</div>
+		<div class="bottom-left"> <p>&copy; 2018 <strong>All reight are reserve</strong>&nbsp; &nbsp; &nbsp;Design by SMP</p></div>
 	
 		<div class="bottom-right"> 
         <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 

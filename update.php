@@ -29,9 +29,9 @@
 				<p id="slogan">Use as tracker... </p>	
 				<div  id="nav">
 					<ul>
-						<li class="first" id="current"><a href="./profile.php">Home</a></li>
+						<li><a href="./profile.php">Home</a></li>
 						<li><a href="./insert.php">Create</a></li>
-						<li><a href="./update.php">Update</a></li>
+						<li class="first" id="current"><a href="./update.php">Update</a></li>
 						<li><a href="./search_date.php">Search</a></li>
 						<li><a href="./create_user.php">Create New User</a></li>
 						<li><a href="./logout.php">Logout</a></li>		
