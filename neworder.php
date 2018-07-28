@@ -50,163 +50,50 @@
 	<div id="content-outer" class="clear"><div id="content-wrap">
 	
 		<div id="content">
-       <table width="920" height="1" border="0" align="center" >
+       <table width="1000" height="1" border="0" align="center" >
             
             <tr colspan=0>
-  	        <td align="Center" colspan="5"><h2 align="center">Your Search Expenses</h2>
+  	        <td align="Center" colspan="7"><h2 align="center">New Order List</h2>
             </td>
             </tr>
  	
     
     		<tr>
-            <th width="115" scope="row"> <p align="left">SI NO.</p></th>
-            <th width="168" scope="row"> <p align="left">Categories</p></th>
-            <th width="298" scope="row"> <p align="left">Description</p></th>
-            <th width="108" scope="row"> <p align="left">Quantity</p></th>
-            <th width="209" scope="row"> <p align="left">Price</p></th>
+            <th width="50" scope="row"> <p align="left">SI</p></th>
+            <th width="100" scope="row"> <p align="left">Order NO.</p></th>
+            <th width="150" scope="row"> <p align="left">Person Name</p></th>
+            <th width="100" scope="row"> <p align="left">Contact NO.</p></th>
+            <th width="100" scope="row"> <p align="left">Created BY</p></th>
+			<th width="100" scope="row"> <p align="left">Created ON</p></th>
+			<th width="50" scope="row"> <p align="left">Update</p></th>
             </tr>
             
 <?php
-$con = mysql_connect("localhost","root","BJvZKFKeHV6GJ+");
-if (!$con){
-  die('Could not connect: ' . mysql_error());
-}
-$sino = 1;
-mysql_select_db("expenses", $con);
-$sdate = $_POST['sD'] + $_POST['sM'] * 30 + $_POST['sY'] * 365;
-$edate = $_POST['eD'] + $_POST['eM'] * 30 + $_POST['eY'] * 365;
-switch($_POST['Cat']){
-	case 1:
-	$result = mysql_query("SELECT * FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate'");
-	while($row = mysql_fetch_array($result)){
+	// Database credential file
+	include 'databaseconnection.php';
+            
+	// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+	$con = mysql_connect($dbhostname, $dbuserid, $dbpassword);
+
+	// Selecting Database
+	$db = mysql_select_db($dbname, $con);
+	$sino = 1;
+	$query = mysql_query("select * from `order` where status = 1", $con);
+	while($row = mysql_fetch_array($query)){
 		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>$sino</p></th>";
+        echo "<th width='50' scope='row'> <p align='left'>$sino</p></th>";
 		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>$row[Cat]</p></th>";
-        echo "<th width='298' scope='row'> <p align='left'>$row[Descript]</p></th>";
-        echo "<th width='108' scope='row'> <p align='left'>$row[Quantity]</p></th>";
-        echo "<th width='209' scope='row'> <p align='left'>Rs.$row[Price]</p></th>";
+        echo "<th width='100' scope='row'> <p align='left'>$row[orderid]</p></th>";
+        echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
+        echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
+		echo "<th width='100' scope='row'> <p align='left'>$row[createdby]</p></th>";
+		echo "<th width='100' scope='row'> <p align='left'>$row[createdon]</p></th>";
+		echo "<th width='50' scope='row'>";
+		echo "<a href='./assingedorder.php'><button>Update</button></a>";
+		echo "</th>";
         echo "</tr>";
   	}
-	break;
-	case 2:
-	$result = mysql_query("SELECT * FROM myexpenses WHERE UserID ='$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Cloth' ");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>$sino</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>$row[Cat]</p></th>";
-        echo "<th width='298' scope='row'> <p align='left'>$row[Descript]</p></th>";
-        echo "<th width='108' scope='row'> <p align='left'>$row[Quantity]</p></th>";
-        echo "<th width='209' scope='row'> <p align='left'>Rs.$row[Price]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 3:
-	$result = mysql_query("SELECT * FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Electronic' ");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>$sino</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>$row[Cat]</p></th>";
-        echo "<th width='298' scope='row'> <p align='left'>$row[Descript]</p></th>";
-        echo "<th width='108' scope='row'> <p align='left'>$row[Quantity]</p></th>";
-        echo "<th width='209' scope='row'> <p align='left'>Rs.$row[Price]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 4:
-	$result = mysql_query("SELECT * FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Household'");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>$sino</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>$row[Cat]</p></th>";
-        echo "<th width='298' scope='row'> <p align='left'>$row[Descript]</p></th>";
-        echo "<th width='108' scope='row'> <p align='left'>$row[Quantity]</p></th>";
-        echo "<th width='209' scope='row'> <p align='left'>Rs.$row[Price]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 5:
-	$result = mysql_query("SELECT * FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Vehicle' ");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>$sino</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>$row[Cat]</p></th>";
-        echo "<th width='298' scope='row'> <p align='left'>$row[Descript]</p></th>";
-        echo "<th width='108' scope='row'> <p align='left'>$row[Quantity]</p></th>";
-        echo "<th width='209' scope='row'> <p align='left'>Rs.$row[Price]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	
-}
-mysql_close($con);
-?>
-<?php
-$con = mysql_connect("localhost","root","BJvZKFKeHV6GJ+");
-if (!$con){
-  die('Could not connect: ' . mysql_error());
-}
-mysql_select_db("expenses", $con);
-$sdate = $_POST['sD'] + $_POST['sM'] * 30 + $_POST['sY'] * 365;
-$edate = $_POST['eD'] + $_POST['eM'] * 30 + $_POST['eY'] * 365;
-switch($_POST['Cat']){
-	case 1:
-	$result = mysql_query("SELECT SUM(Price) AS sum FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate'");
-	while($row = mysql_fetch_array($result)){
-		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>Grand Total</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>Rs.$row[sum]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 2:
-	$result = mysql_query("SELECT SUM(Price) AS sum FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Cloth' ");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>Grand Total</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>Rs.$row[sum]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 3:
-	$result = mysql_query("SELECT SUM(Price) AS sum FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Electronic' ");
-	while($row = mysql_fetch_array($result)){
-		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>Grand Total</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>Rs.$row[sum]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 4:
-	$result = mysql_query("SELECT SUM(Price) AS sum FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Household'");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>Grand Total</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>Rs.$row[sum]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	case 5:
-	$result = mysql_query("SELECT SUM(Price) AS sum FROM myexpenses WHERE UserID = '$_SESSION[login_user]' AND Date >= '$sdate' AND Date <= '$edate' AND Cat = 'Vehicle' ");
-	while($row = mysql_fetch_array($result)){
-  		echo "<tr>";
-        echo "<th width='115' scope='row'> <p align='left'>Grand Total</p></th>";
-		$sino++;
-        echo "<th width='168' scope='row'> <p align='left'>Rs.$row[sum]</p></th>";
-        echo "</tr>";
-  	}
-	break;
-	
-}
-mysql_close($con);
+	mysql_close($con);
 ?>
       	</table>
       	</div>	
