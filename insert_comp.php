@@ -48,7 +48,29 @@
                                 <td width="100%">
                                 <form action="./insert_comp.php" method="POST" >
             <table width="482" height="415" border="0" align="left" >
-              <tr colspan=0><td align="Center" colspan="6"><h2 align="center">Insert Order Items</h2></td></tr>
+              <tr colspan=0><td align="Center" colspan="6"><h2 align="center">Insert Order Items</h2></td>
+              <?php
+// Database credential file
+include 'databaseconnection.php';
+            
+// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+$con = mysql_connect($dbhostname, $dbuserid, $dbpassword);
+
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+mysql_select_db($dbname, $con);
+$idate = $_POST['Y']."-".$_POST['M']."-".$_POST['D'];
+$sql="INSERT INTO freequranledger.order (orderid, createdby, createdon, language, quantity, name, contact, address, emailid, createreview, deliveredby, delivereddate,deliveredreview, status, updatedate, asigndate, asignto, assignreview, descript) VALUES (NULL, '$_SESSION[login_user]','$idate', '$_POST[language]', '$_POST[quantity]', '$_POST[name]', '$_POST[contact]', '$_POST[address]', '$_POST[emailid]','$_POST[createreview]', NULL, '0000-00-00 00:00:00.000000', NULL,'1', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000', NULL, NULL,'$_POST[description]')";
+if (!mysql_query($sql,$con))
+  {
+  die('Error: ' . mysql_error());
+  }
+echo "1 record added";
+mysql_close($con);
+?>
+              </tr>
 
               <!-- Language Row-->
               <tr><th scope="row" align="left">Language<font color="#FF0000">*</font></th>
@@ -105,6 +127,13 @@
                 </td>
               </tr>
               
+              <!-- Reivew of Order-->
+              <tr>
+                <th width="87" scope="row"><p align="left">Review<font color="#FF0000">*</font></p></th>
+                <td colspan="4"><font face='Verdana' size='2'>
+                  <input size="15" maxlength="10" name="createreview" type="text" id="name" /></font>
+                </td>
+              </tr>
 
               <!-- Date of creation -->
               <tr><th width="87" rowspan="1" scope="row"><p align="left">Date<font color="#FF0000">*</font></p></th>
@@ -234,25 +263,3 @@
 
 </body>
 </html>
-<?php
-// Database credential file
-include 'databaseconnection.php';
-            
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$con = mysql_connect($dbhostname, $dbuserid, $dbpassword);
-
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-mysql_select_db($dbname, $con);
-$idate = date("YMD", $_POST['Y'].$_POST['M'].$_POST['D']);
-//$sql="INSERT INTO order (createdby, language, quantity, name, contact, emailid, address, createdon, descript) VALUES ('$_SESSION[login_user]','$_POST[language]','$_POST[quantity]','$_POST[name]','$_POST[contact]','$_POST[emailid]','$_POST[address]','$idate','$_POST[description]')";
-$sql="INSERT INTO order (createdby) VALUES ('$_SESSION[login_user]')";
-if (!mysql_query($sql,$con))
-  {
-  die('Error: ' . mysql_error());
-  }
-echo "1 record added";
-mysql_close($con);
-?>

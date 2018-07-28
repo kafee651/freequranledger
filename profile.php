@@ -52,6 +52,42 @@
 									<b id="logout"><a href="./logout.php">Log Out</a></b>
 								</td>
 							</tr>
+							<?php
+								include 'databaseconnection.php';
+            
+								// Establishing Connection with Server by passing server_name, user_id and password as a parameter
+								$con = mysql_connect($dbhostname, $dbuserid, $dbpassword);
+								if (!$con){
+									die('Could not connect: ' . mysql_error());
+								}
+								mysql_select_db($dbname, $con);
+								//$query = mysql_query("SELECT * FROM '$dbname'.order WHERE 1", $con);
+								$query = mysql_query("select * from profile where password='abu123' AND userid='abu123'", $connection);
+								echo $con;
+								echo $dbname;
+								echo $query;
+								echo "<tr>kafee";
+								while($row = mysql_fetch_array($query)){
+									echo "<tr>kafee";
+									/*
+									<tr>
+										<td width="100%" align="center">
+											<b id="welcome">Welcome : <i><?php echo $_SESSION['login_user']; ?></i></b>
+										</td>
+										<td width="100%" align="center">	   
+											<b id="logout"><a href="./logout.php">Log Out</a></b>
+										</td>
+									</tr>
+									echo "<th width='168' scope='row'> <p align='left'>$row[status]</p></th>";
+									echo "<th width='298' scope='row'> <p align='left'>$row[count1]</p></th>";*/
+									echo "</tr>";
+								}
+								if (!mysql_query($sql,$con)){
+									die('Error: ' . mysql_error());
+								}
+								echo "1 record added";
+								mysql_close($con);
+							?>
 						</table> 	
 					</div>	
 				</div>

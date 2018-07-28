@@ -59,9 +59,9 @@
               <!-- Language Row-->
               <tr><th scope="row" align="left">Language<font color="#FF0000">*</font></th>
                 <td colspan="4">
-                  <label><select name="Cat">
+                  <label><select name="language">
                     <option value="english">English</option>
-                    <option value="hindi">Hindi</option>
+                    <option value="language">Hindi</option>
                     <option value="bengali">Bengali</option>
                   </select></label>
                 </td>
@@ -111,6 +111,14 @@
                 </td>
               </tr>
               
+              <!-- Reivew of Order-->
+              <tr>
+                <th width="87" scope="row"><p align="left">Review<font color="#FF0000">*</font></p></th>
+                <td colspan="4"><font face='Verdana' size='2'>
+                  <input size="15" maxlength="10" name="createreview" type="text" id="name" /></font>
+                </td>
+              </tr>
+
 
               <!-- Date of creation -->
               <tr><th width="87" rowspan="1" scope="row"><p align="left">Date<font color="#FF0000">*</font></p></th>
