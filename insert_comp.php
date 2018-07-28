@@ -131,7 +131,7 @@ mysql_close($con);
               <tr>
                 <th width="87" scope="row"><p align="left">Review<font color="#FF0000">*</font></p></th>
                 <td colspan="4"><font face='Verdana' size='2'>
-                  <input size="15" maxlength="10" name="createreview" type="text" id="name" /></font>
+                  <input size="15" maxlength="100" name="createreview" type="text" id="name" /></font>
                 </td>
               </tr>
 

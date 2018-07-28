@@ -87,7 +87,7 @@
         echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
         echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
 		echo "<th width='100' scope='row'> <p align='left'>$row[deliveredby]</p></th>";
-		echo "<th width='100' scope='row'> <p align='left'>$row[deliveredon]</p></th>";
+		echo "<th width='100' scope='row'> <p align='left'>$row[delivereddate]</p></th>";
 		echo "<th width='50' scope='row'>";
 		echo "<a href='./assingedorder.php'><button>View</button></a>";
 		echo "</th>";
