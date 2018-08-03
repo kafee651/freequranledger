@@ -65,7 +65,7 @@
             <th width="100" scope="row"> <p align="left">Contact NO.</p></th>
             <th width="100" scope="row"> <p align="left">Created ON</p></th>
 			<th width="100" scope="row"> <p align="left">Created BY</p></th>
-			<th width="50" scope="row"> <p align="left">Update</p></th>
+			<th width="50" scope="row"> <p align="left">View</p></th>
             </tr>
             
 <?php
@@ -88,14 +88,14 @@
 				echo "<tr>";
         		echo "<th width='50' scope='row'> <p align='left'>$sino</p></th>";
 				$sino++;
-				echo "<form action='./deliveredupdate.php' name='input' method='POST'>";
+				echo "<form action='./search_orderby_orderid.php' name='input' method='POST'>";
 				echo "<th width='100' scope='row'> <p align='left'><input type='text' name='orderid' value='$row[orderid]'></p></th>";
 				echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdon]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdby]</p></th>";
 				echo "<th width='50' scope='row'>";
-				echo "<input type='submit' value='Update' /></form>";
+				echo "<input type='submit' value='View' /></form>";
 				echo "</th>";
 				echo "</tr>";
 			}
@@ -106,14 +106,14 @@
 				echo "<tr>";
         		echo "<th width='50' scope='row'> <p align='left'>$sino</p></th>";
 				$sino++;
-				echo "<form action='./deliveredupdate.php' name='input' method='POST'>";
+				echo "<form action='./search_orderby_orderid.php' name='input' method='POST'>";
 				echo "<th width='100' scope='row'> <p align='left'><input type='text' name='orderid' value='$row[orderid]'></p></th>";
 				echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdon]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdby]</p></th>";
 				echo "<th width='50' scope='row'>";
-				echo "<input type='submit' value='Update' /></form>";
+				echo "<input type='submit' value='View' /></form>";
 				echo "</th>";
 				echo "</tr>";
 			}
@@ -124,14 +124,14 @@
 				echo "<tr>";
         		echo "<th width='50' scope='row'> <p align='left'>$sino</p></th>";
 				$sino++;
-				echo "<form action='./deliveredupdate.php' name='input' method='POST'>";
+				echo "<form action='./search_orderby_orderid.php' name='input' method='POST'>";
 				echo "<th width='100' scope='row'> <p align='left'><input type='text' name='orderid' value='$row[orderid]'></p></th>";
 				echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdon]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdby]</p></th>";
 				echo "<th width='50' scope='row'>";
-				echo "<input type='submit' value='Update' /></form>";
+				echo "<input type='submit' value='View' /></form>";
 				echo "</th>";
 				echo "</tr>";
 			}
@@ -142,14 +142,14 @@
 				echo "<tr>";
         		echo "<th width='50' scope='row'> <p align='left'>$sino</p></th>";
 				$sino++;
-				echo "<form action='./deliveredupdate.php' name='input' method='POST'>";
+				echo "<form action='./search_orderby_orderid.php' name='input' method='POST'>";
 				echo "<th width='100' scope='row'> <p align='left'><input type='text' name='orderid' value='$row[orderid]'></p></th>";
 				echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdon]</p></th>";
 				echo "<th width='100' scope='row'> <p align='left'>$row[createdby]</p></th>";
 				echo "<th width='50' scope='row'>";
-				echo "<input type='submit' value='Update' /></form>";
+				echo "<input type='submit' value='View' /></form>";
 				echo "</th>";
 				echo "</tr>";
 			}

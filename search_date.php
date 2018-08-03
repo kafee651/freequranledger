@@ -50,7 +50,7 @@
             <div id="content-wrap">
 	            <div id="content">
                     <table width="400" border="0" cellspacing="0" cellpadding="0">
-                        <tr><td width="100%"><form action="./search_date_comp.php" method="POST" >
+                        <tr><td width="100%"><form action="./search_orderby_orderid.php" method="POST" >
                                     <table width="494" height="215" border="0" align="left" >
                                         <tr colspan=0><td align="Center" colspan="6">
                                                 <h2 align="center">Search  Order by Order ID</h2></td></tr>

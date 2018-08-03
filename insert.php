@@ -60,9 +60,9 @@
               <tr><th scope="row" align="left">Language<font color="#FF0000">*</font></th>
                 <td colspan="4">
                   <label><select name="language">
-                    <option value="english">English</option>
-                    <option value="language">Hindi</option>
-                    <option value="bengali">Bengali</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Bengali">Bengali</option>
                   </select></label>
                 </td>
               </tr>

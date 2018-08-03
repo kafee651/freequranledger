@@ -83,15 +83,16 @@
 		echo "<tr>";
         echo "<th width='50' scope='row'> <p align='left'>$sino</p></th>";
 		$sino++;
-        echo "<th width='100' scope='row'> <p align='left'>$row[orderid]</p></th>";
-        echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
+        echo "<form action='./search_orderby_orderid.php' name='input' method='POST'>";
+		echo "<th width='100' scope='row'> <p align='left'><input type='text' name='orderid' value='$row[orderid]'></p></th>";
+		echo "<th width='150' scope='row'> <p align='left'>$row[name]</p></th>";
         echo "<th width='100' scope='row'> <p align='left'>$row[contact]</p></th>";
 		echo "<th width='100' scope='row'> <p align='left'>$row[deliveredby]</p></th>";
 		echo "<th width='100' scope='row'> <p align='left'>$row[delivereddate]</p></th>";
 		echo "<th width='50' scope='row'>";
-		echo "<a href='./assingedorder.php'><button>View</button></a>";
+		echo "<input type='submit' value='View' /></form>";
 		echo "</th>";
-        echo "</tr>";
+		echo "</tr>";
   	}
 	mysql_close($con);
 ?>
