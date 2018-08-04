@@ -53,7 +53,7 @@
        <table width="1000" height="1" border="0" align="center" >
             
             <tr colspan=0>
-  	        <td align="Center" colspan="7"><h2 align="center">New Order List</h2>
+  	        <td align="Center" colspan="7"><h2 align="center">Assigned Order List</h2>
             </td>
             </tr>
  	
